@@ -36,4 +36,11 @@ public class CadastroCozinha {
 		// update Cozinha set nome = 'nome' where id = 'id'
 		return manager.merge(cozinha);
 	}
+	
+	@Transactional // pra executar dentro de uma transação
+	public void remover(Cozinha cozinha) {
+		cozinha = buscar(cozinha.getId());
+		manager.remove(cozinha);
+	}
+	
 }
