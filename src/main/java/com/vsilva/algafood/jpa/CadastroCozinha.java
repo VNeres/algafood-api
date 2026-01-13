@@ -24,6 +24,11 @@ public class CadastroCozinha {
 		return query.getResultList();
 	}
 	
+	public Cozinha buscar(Long id) {
+		// select * from Cozinha where id = id
+		return manager.find(Cozinha.class, id);
+	}
+	
 	@Transactional // anotação para fazer com que o método seja executado dentro de uma transação.
 	public Cozinha adicionar(Cozinha cozinha) {
 		// insert into Cozinha (nome) values ('value')
