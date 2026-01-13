@@ -30,9 +30,10 @@ public class CadastroCozinha {
 	}
 	
 	@Transactional // anotação para fazer com que o método seja executado dentro de uma transação.
-	public Cozinha adicionar(Cozinha cozinha) {
-		// insert into Cozinha (nome) values ('value')
-		
+	public Cozinha salvar(Cozinha cozinha) {
+		// insert into Cozinha (nome) values ('value');
+		//or
+		// update Cozinha set nome = 'nome' where id = 'id'
 		return manager.merge(cozinha);
 	}
 }
