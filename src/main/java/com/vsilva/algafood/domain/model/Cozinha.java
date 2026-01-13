@@ -4,15 +4,18 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name="tab_cozinhas")
+@Entity /*(name="tab_cozinhas") - se quiser definir o nome da tabela*/
 public class Cozinha {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="nom_cozinha")
+	@Column /*(name="nom_cozinha") - se qusier definir o nome da coluna)*/
 	private String nome;
 
 	public Long getId() {
