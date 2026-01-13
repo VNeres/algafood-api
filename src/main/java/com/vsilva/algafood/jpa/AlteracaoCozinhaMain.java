@@ -17,7 +17,7 @@ public class AlteracaoCozinhaMain {
 		
 		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);
 
-		// Criar cozinhas
+		// Alterar cozinhas
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
 		cozinha.setNome("Brasileira");
