@@ -7,9 +7,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
 import com.vsilva.algafood.domain.model.Cozinha;
 import com.vsilva.algafood.domain.repository.CozinhaRepository;
 
+@Repository
 public class CozinhaRepositoryImpl implements CozinhaRepository {
 
 	@PersistenceContext

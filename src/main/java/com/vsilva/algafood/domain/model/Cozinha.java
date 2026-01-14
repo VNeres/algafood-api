@@ -11,16 +11,15 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@Entity /*(name="tab_cozinhas") - se quiser definir o nome da tabela*/
+@Entity /* (name="tab_cozinhas") - se quiser definir o nome da tabela */
 public class Cozinha {
 
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column /*(name="nom_cozinha") - se qusier definir o nome da coluna)*/
+
+	@Column(nullable = false) /* (name="nom_cozinha") - se qusier definir o nome da coluna) */
 	private String nome;
-	
-	
+
 }

@@ -7,13 +7,16 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
 import com.vsilva.algafood.domain.model.Restaurante;
 import com.vsilva.algafood.domain.repository.RestauranteRepository;
 
+@Repository
 public class RestauranteRepositoryImpl implements RestauranteRepository {
 
 	@PersistenceContext
-	EntityManager manager;
+	private EntityManager manager;
 	
 	@Override
 	public List<Restaurante> todos() {
