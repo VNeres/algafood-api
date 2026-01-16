@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.vsilva.algafood.api.model.CozinhaXmlWrapper;
 import com.vsilva.algafood.domain.model.Cozinha;
 import com.vsilva.algafood.domain.repository.CozinhaRepository;
 
@@ -22,6 +23,11 @@ public class CozinhaController {
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Cozinha> listar() {
 		return cozinhaRepository.todas();
+	}
+	
+	@GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+	public CozinhaXmlWrapper listarXml() {
+		return new CozinhaXmlWrapper(cozinhaRepository.todas());
 	}
 	
 	@GetMapping("/{cozinhaId}")
