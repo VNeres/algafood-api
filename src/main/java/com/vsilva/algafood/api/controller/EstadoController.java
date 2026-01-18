@@ -13,10 +13,10 @@ import com.vsilva.algafood.domain.repository.EstadoRepository;
 @RestController
 @RequestMapping("/estados")
 public class EstadoController {
-	
+
 	@Autowired
 	private EstadoRepository estadoRepository;
-	
+
 	@GetMapping
 	public List<Estado> listar() {
 		return estadoRepository.todos();
