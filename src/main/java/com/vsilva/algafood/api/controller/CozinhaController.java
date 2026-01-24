@@ -77,7 +77,7 @@ public class CozinhaController {
 	}
 
 	@DeleteMapping("/{cozinhaId}")
-	public ResponseEntity<Cozinha> remover(@PathVariable long cozinhaId) {
+	public ResponseEntity<Cozinha> remover(@PathVariable Long cozinhaId) {
 
 		try {
 			cadastroCozinha.remover(cozinhaId);

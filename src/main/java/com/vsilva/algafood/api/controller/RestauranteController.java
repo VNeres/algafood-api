@@ -61,7 +61,7 @@ public class RestauranteController {
 	}
 
 	@PutMapping("/{restauranteId}")
-	public ResponseEntity<?> remover(@RequestBody Restaurante restaurante, @PathVariable Long restauranteId) {
+	public ResponseEntity<?> atualizar(@RequestBody Restaurante restaurante, @PathVariable Long restauranteId) {
 
 		try {
 			Restaurante restauranteAtual = restauranteRepository.porId(restauranteId);

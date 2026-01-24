@@ -12,6 +12,6 @@ public interface CidadeRepository {
 
 	Cidade Adionar(Cidade cidade);
 
-	void remover(Cidade cidade);
+	void remover(Long id);
 
 }
