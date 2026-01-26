@@ -13,24 +13,26 @@ import com.vsilva.algafood.domain.repository.EstadoRepository;
 @Service
 public class CadastroEstadoService {
 
-	@Autowired 
+	@Autowired
 	EstadoRepository estadoRepository;
-	
+
 	public Estado salvar(Estado estado) {
-		return estadoRepository.adicionar(estado);
+		return estadoRepository.save(estado);
 	}
-	
+
 	public void remover(Long estadoId) {
-		
+
 		try {
-			estadoRepository.remover(estadoId);
+			if (!estadoRepository.existsById(estadoId)) {
+				throw new EntidadeNaoEncontradaException(
+						String.format("Não existe um cadstro de estado com código %d", estadoId));
+			}
 			
-		}catch(EmptyResultDataAccessException e) {
-			throw new EntidadeNaoEncontradaException(
-					String.format("Não existe um cadstro de estado com código %d", estadoId));
-		} catch(DataIntegrityViolationException e) {
+			estadoRepository.deleteById(estadoId);
+
+		} catch (DataIntegrityViolationException e) {
 			throw new EntidadeEmUsoException(
-					String.format("Estado de código %d não pode ser removida, pois está em uso.", estadoId));			
+					String.format("Estado de código %d não pode ser removida, pois está em uso.", estadoId));
 		}
 	}
 }

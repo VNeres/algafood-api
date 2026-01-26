@@ -1,17 +1,9 @@
 package com.vsilva.algafood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.vsilva.algafood.domain.model.Permissao;
 
-public interface PermissaoRepository {
-
-	List<Permissao> todos();
-
-	Permissao porId(Long id);
-
-	Permissao adicionar(Permissao permissao);
-
-	void remover(Permissao permissao);
+public interface PermissaoRepository extends JpaRepository<Permissao, Long> {
 
 }

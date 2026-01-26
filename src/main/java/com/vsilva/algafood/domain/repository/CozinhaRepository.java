@@ -1,16 +1,11 @@
 package com.vsilva.algafood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.vsilva.algafood.domain.model.Cozinha;
 
-public interface CozinhaRepository {
+public interface CozinhaRepository extends JpaRepository<Cozinha, Long>{
+	
+	//List<Cozinha> porNome(String nome);
 
-	List<Cozinha> todas();
-
-	Cozinha porId(Long id);
-
-	Cozinha adicionar(Cozinha cozinha);
-
-	void remover(Long id);
 }

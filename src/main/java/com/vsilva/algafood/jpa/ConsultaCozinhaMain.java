@@ -22,7 +22,7 @@ public class ConsultaCozinhaMain {
 		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
 		
 		// Retornar cozinha
-		List<Cozinha> todasCozinhas = cozinhas.todas();
+		List<Cozinha> todasCozinhas = cozinhas.findAll();
 		
 		for(Cozinha cozinha : todasCozinhas) {
 			System.out.println(cozinha.getNome());

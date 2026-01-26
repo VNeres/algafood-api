@@ -1,57 +1,65 @@
-package com.vsilva.algafood.infrastructure.repository;
-
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
-
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Repository;
-
-import com.vsilva.algafood.domain.model.Cozinha;
-import com.vsilva.algafood.domain.repository.CozinhaRepository;
-
-@Repository
-public class CozinhaRepositoryImpl implements CozinhaRepository {
-
-	@PersistenceContext
-	private EntityManager manager;
-
-	@Override
-	public List<Cozinha> todas() {
-		// select * from Cozinha
-		TypedQuery<Cozinha> query = manager.createQuery("from Cozinha", Cozinha.class);
-
-		return query.getResultList();
-	}
-
-	@Override
-	public Cozinha porId(Long id) {
-		// select * from Cozinha where id = id
-		return manager.find(Cozinha.class, id);
-	}
-
-	@Transactional // anotação para fazer com que o método seja executado dentro de uma transação.
-	@Override
-	public Cozinha adicionar(Cozinha cozinha) {
-		// insert into Cozinha (nome) values ('value');
-		// or
-		// update Cozinha set nome = 'nome' where id = 'id'
-		return manager.merge(cozinha);
-	}
-
-	@Transactional // pra executar dentro de uma transação
-	@Override
-	public void remover(Long id) {
-		Cozinha cozinha = porId(id);
-
-		if (cozinha == null) {
-			throw new EmptyResultDataAccessException(1);
-		}
-
-		manager.remove(cozinha);
-	}
-
-}
+//package com.vsilva.algafood.infrastructure.repository;
+//
+//import java.util.List;
+//
+//import javax.persistence.EntityManager;
+//import javax.persistence.PersistenceContext;
+//import javax.persistence.TypedQuery;
+//import javax.transaction.Transactional;
+//
+//import org.springframework.dao.EmptyResultDataAccessException;
+//import org.springframework.stereotype.Repository;
+//
+//import com.vsilva.algafood.domain.model.Cozinha;
+//import com.vsilva.algafood.domain.repository.CozinhaRepository;
+//
+//@Repository
+//public class CozinhaRepositoryImpl implements CozinhaRepository {
+//
+//	@PersistenceContext
+//	private EntityManager manager;
+//
+//	@Override
+//	public List<Cozinha> todas() {
+//		// select * from Cozinha
+//		TypedQuery<Cozinha> query = manager.createQuery("from Cozinha", Cozinha.class);
+//
+//		return query.getResultList();
+//	}
+//	
+//	@Override
+//	public List<Cozinha> porNome(String nome) {
+//		TypedQuery<Cozinha> query = manager.createQuery("from Cozinha where nome like :nome", Cozinha.class)
+//				.setParameter("nome", "%" + nome + "%");
+//		
+//		return query.getResultList();
+//	}
+//
+//	@Override
+//	public Cozinha porId(Long id) {
+//		// select * from Cozinha where id = id
+//		return manager.find(Cozinha.class, id);
+//	}
+//
+//	@Transactional // anotação para fazer com que o método seja executado dentro de uma transação.
+//	@Override
+//	public Cozinha adicionar(Cozinha cozinha) {
+//		// insert into Cozinha (nome) values ('value');
+//		// or
+//		// update Cozinha set nome = 'nome' where id = 'id'
+//		return manager.merge(cozinha);
+//	}
+//
+//	@Transactional // pra executar dentro de uma transação
+//	@Override
+//	public void remover(Long id) {
+//		Cozinha cozinha = porId(id);
+//
+//		if (cozinha == null) {
+//			throw new EmptyResultDataAccessException(1);
+//		}
+//
+//		manager.remove(cozinha);
+//	}
+//
+//}

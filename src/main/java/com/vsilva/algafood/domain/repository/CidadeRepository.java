@@ -1,17 +1,9 @@
 package com.vsilva.algafood.domain.repository;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.vsilva.algafood.domain.model.Cidade;
 
-public interface CidadeRepository {
-
-	List<Cidade> todos();
-
-	Cidade porId(Long id);
-
-	Cidade Adionar(Cidade cidade);
-
-	void remover(Long id);
-
+public interface CidadeRepository extends JpaRepository<Cidade, Long> {
+	
 }

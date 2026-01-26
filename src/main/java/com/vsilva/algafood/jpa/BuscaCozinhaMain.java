@@ -1,5 +1,7 @@
 package com.vsilva.algafood.jpa;
 
+import java.util.Optional;
+
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -19,9 +21,9 @@ public class BuscaCozinhaMain {
 		CozinhaRepository cozinhas = applicationContext.getBean(CozinhaRepository.class);
 
 		// Retornar cozinha
-		Cozinha cozinha = cozinhas.porId(1L);
+		Optional<Cozinha> cozinha = cozinhas.findById(1L);
 
-		System.out.println(cozinha.getNome());
+		System.out.println(cozinha.get().getNome());
 
 	}
 
