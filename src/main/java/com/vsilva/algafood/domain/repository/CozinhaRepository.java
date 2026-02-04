@@ -3,11 +3,9 @@ package com.vsilva.algafood.domain.repository;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.vsilva.algafood.domain.model.Cozinha;
 
-public interface CozinhaRepository extends JpaRepository<Cozinha, Long>{
+public interface CozinhaRepository extends CustomJpaRepository<Cozinha, Long>{
 	
 	List<Cozinha> findTodasByNomeContaining(String nome);
 	
