@@ -40,10 +40,10 @@ public class CozinhaController {
 		return cozinhaRepository.findAll();
 	}
 
-	@GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
-	public CozinhaXmlWrapper listarXml() {
-		return new CozinhaXmlWrapper(cozinhaRepository.findAll());
-	}
+//	@GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+//	public CozinhaXmlWrapper listarXml() {
+//		return new CozinhaXmlWrapper(cozinhaRepository.findAll());
+//	}
 
 	@GetMapping("/{cozinhaId}")
 	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId) {
